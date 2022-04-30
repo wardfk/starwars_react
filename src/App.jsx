@@ -9,10 +9,12 @@ import Section from './containers/Section/Section';
 import PeopleList from './containers/PeopleList/PeopleList';
 import Modal from "./containers/Modal/Modal";
 import GenderFilter from './containers/Filter/GenderFilter/GenderFilter';
+// import Pagenav from './containers/Pagenav/Pagenav';
 
 //IMPORT COMPONENTS
 import TitleH1 from './components/Text/TitleH1/TitleH1';
 import PeopleCard from './components/PeopleCard/PeopleCard';
+// import Button from "./components/Button/Button";
 
 //IMPORT HOOKS
 import { useStarwars } from './services/starwars-services';
@@ -75,14 +77,21 @@ function App() {
     setFiltered(filter);
   }, [filterGender]);
 
+  // const handlePag = async (url) => {
+  //   const people = await peopleService.getHuman(url);
+  //   const {results} = await people.data;
+  //   setPeopleList(results);
+  // }
+  
+
 
   return (
     
     <div  style={{
-      backgroundImage: `URL(${background})`,
+      background: `URL(${background})`,
       backgroundPosition: 'center',
       backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
   }}>
     <Header />
     <Section>
@@ -106,12 +115,17 @@ function App() {
                 <PeopleCard className="card"
                   name={people.name}
                   handleClick={() => handleHuman(people.url)}
-                />
+                  />
               </li>
             )
           })
         }
       </PeopleList>
+        {/* <Pagenav 
+          prevUrl={peopleList.previous}
+          nextUrl={peopleList.next}
+          onClick={(url)=>handlePag(url)}
+        />  */}
     </Section>
     {
         modalOpened && (
@@ -123,15 +137,15 @@ function App() {
                   <br></br>
                 </div>
                 <h4>Height: </h4>{selectedPeople.height}
-                <br></br>
+                
                 <h4>Mass: </h4>{selectedPeople.mass}
-                <br></br>
+                
                 <h4>Hair color: </h4>{selectedPeople.hair_color}
-                <br></br>
+                
                 <h4>Skin color: </h4>{selectedPeople.skin_color}
-                <br></br>
+                
                 <h4>Eye color: </h4>{selectedPeople.eye_color}
-                <br></br>
+                
                 <h4>Birth year: </h4>{selectedPeople.birth_year}
               </div>
             }
