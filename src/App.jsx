@@ -48,7 +48,7 @@ function App() {
                 peopleList.map((people, index) => {
                   return(
                     <li key={index}>
-                      <PeopleCard className="col-6"
+                      <PeopleCard className=" card col-6"
                         name={people.name}
                       />
                     </li>
