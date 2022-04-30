@@ -1,4 +1,4 @@
-import react, { useState, useEffect } from "react";
+import react, { useState, useEffect, useRef } from "react";
 
 //IMPORT BACKGROUND
 import background from './assets/img/bgstarwars.jpg';
@@ -32,13 +32,18 @@ function App() {
   //PEOPLE
   const [peopleList, setPeopleList] = useState([]);
   const [selectedPeople, setSelectedPeople] = useState({});
+  const [searchedPeople, setSearchedPeople] = useState([]);
+
+  //SEARCH
+  const searchBar = useRef(null);
 
   useEffect(() => {
     const getPeopleList = async () => {
       const people = await peopleService.getPeople();
       const {results} = await people.data;
       setPeopleList(results);
-      console.log(results);
+      setSearchedPeople(results);
+      console.log(searchedPeople);
     }
     getPeopleList();
   }, []);
@@ -49,6 +54,12 @@ function App() {
     setSelectedPeople(humanInfo);
     handleModal(true);
   }
+
+  const handleSearch = () => {
+    const searchedValue = searchBar.current.value.toLowerCase();
+    const filteredPeople = peopleList.filter(people => people.name.toLowerCase().includes(searchedValue));
+    setSearchedPeople(filteredPeople);
+  };
 
 
   return (
@@ -64,11 +75,15 @@ function App() {
       <TitleH1 
         text="Chose your STAR WARS"
       />
+      <div>
+        <input type="text" className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
+        <br></br>
+      </div>
       {peopleService.loading && <span>List is loading...</span>}
       {peopleService.peopleListError !== "" && <span>{peopleService.peopleListError}</span>}
       <PeopleList>
         {
-          peopleList.map((people, index) => {
+          searchedPeople.map((people, index) => {
             return(
               <li key={index}>
                 <PeopleCard className="card"
