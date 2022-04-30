@@ -1,6 +1,8 @@
 import { useState } from "react";
 
 import { getPeopleRequest } from '../lib/get-people-request';
+import { getHumanRequest } from "../lib/get-human-request";
+
 export const useStarwars = () => {
     const [loading, setLoading] = useState(true);
     const [peopleListError, setPeopleListError] = useState("");
@@ -14,11 +16,23 @@ export const useStarwars = () => {
             setPeopleListError(error);
             setLoading(false);
         }
-
     };  
+    const getHuman = async (url) => {
+        try{
+            const HumanResponse = await getHumanRequest(url); 
+            setLoading(false);
+            return HumanResponse; 
+        }catch(error){
+            setPeopleListError(error);
+            setLoading(false);
+        }
+    };
+
+      
     return{
         getPeople,
         loading,
         peopleListError,
+        getHuman
     }
 }
