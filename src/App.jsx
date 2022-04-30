@@ -8,6 +8,7 @@ import Header from './containers/Header/Header';
 import Section from './containers/Section/Section';
 import PeopleList from './containers/PeopleList/PeopleList';
 import Modal from "./containers/Modal/Modal";
+import GenderFilter from './containers/Filter/GenderFilter/GenderFilter';
 
 //IMPORT COMPONENTS
 import TitleH1 from './components/Text/TitleH1/TitleH1';
@@ -37,13 +38,17 @@ function App() {
   //SEARCH
   const searchBar = useRef(null);
 
+  //FILTER GENDER
+  const [filtered, setFiltered] = useState([]);
+  const [filterGender, setFilterGender] = useState(0);
+
   useEffect(() => {
     const getPeopleList = async () => {
       const people = await peopleService.getPeople();
       const {results} = await people.data;
       setPeopleList(results);
       setSearchedPeople(results);
-      console.log(searchedPeople);
+      setFiltered(results);
     }
     getPeopleList();
   }, []);
@@ -60,6 +65,15 @@ function App() {
     const filteredPeople = peopleList.filter(people => people.name.toLowerCase().includes(searchedValue));
     setSearchedPeople(filteredPeople);
   };
+
+   // FILTER WITH GENDER
+   useEffect(() => {
+    if(filterGender === 0){
+      return setFiltered(peopleList);
+    }
+    const filter = peopleList.filter((people) => people.gender === filterGender);
+    setFiltered(filter);
+  }, [filterGender]);
 
 
   return (
@@ -79,11 +93,14 @@ function App() {
         <input type="text" className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
         <br></br>
       </div>
+      <GenderFilter 
+        setFilterGender={(id) => setFilterGender(id)} 
+      />
       {peopleService.loading && <span>List is loading...</span>}
       {peopleService.peopleListError !== "" && <span>{peopleService.peopleListError}</span>}
       <PeopleList>
         {
-          searchedPeople.map((people, index) => {
+          filtered.map((people, index) => {
             return(
               <li key={index}>
                 <PeopleCard className="card"
