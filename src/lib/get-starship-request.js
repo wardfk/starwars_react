@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getHumanRequest = (url) => {
+export const getStarshipRequest = (url) => {
     return axios (url, {
         method:'GET'
     });

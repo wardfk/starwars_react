@@ -5,7 +5,7 @@ const PeopleCard = ({name, handleClick}) => {
     return(
         <PeopleCardContainer>
             <h3>{name}</h3>
-            <span onClick={() => handleClick()}>Ver más información</span>
+            <span onClick={() => handleClick()}>View more ...</span>
         </PeopleCardContainer>
     );
 };
