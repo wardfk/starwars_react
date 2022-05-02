@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const TitleH1Container = styled.div`
-    margin: 50px 0 ;
+    margin: 50px 100px;
     font-size: 60px;
     color: white;
     text-shadow: 0 0 7px rgb(255, 232, 31),

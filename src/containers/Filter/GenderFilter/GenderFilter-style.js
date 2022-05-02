@@ -1,17 +1,40 @@
 import styled from 'styled-components';
 
 const FilterContainer = styled.div`
-    background-color: transparent;
-    border: none;
+background: rgba(255, 255, 255, 0.31);
+border-radius: 6px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(6.7px);
+-webkit-backdrop-filter: blur(6.7px);
+padding: 20px; 
+.filter-people{
+    width: 300px;
     h4{
+        font-size: 1.3rem;
         color: white;
     }
-    .filter-people{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .buttons{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
         button{
+            font-size: 1.2rem;
+            padding: 0;
             background-color: transparent;
             border: none;
-            box-shadow: inset 0 0 50px rgb(250, 0, 0), 0 0 30px rgb(250, 0, 0);
-            margin-right: 20px;
+            text-shadow: 2px 2px 3px white;
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+            :hover{
+                text-decoration: none;
+            }
         }
     }
 `;
