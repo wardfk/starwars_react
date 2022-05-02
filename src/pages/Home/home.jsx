@@ -243,7 +243,6 @@ function Home() {
                   <h4>Cargo: </h4>{selectedStarships.cargo_capicity}
                   
                   <h4>Hyperdrive: </h4>{selectedStarships.Hyperdrive_rating}
-                  
               </div>
             }
           </Modal>

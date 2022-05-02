@@ -2,7 +2,7 @@ import react, { useState } from "react";
 import Header from '../../containers/Header/Header';
 import ContactContainer from "./contact-style";
 import darthvader from '../../assets/img/darth-vader-white.png';
-import background from '../../assets/img/sky.jpg';
+import background from '../../assets/img/bgstarwars.jpg';
 
 
 function Contact () {
@@ -23,7 +23,7 @@ function Contact () {
     return(
         <div style={{
             backgroundImage: `URL(${background})`,
-            backgroundPosition: 'center',
+            backgroundPosition: 'top',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat'
         }}>

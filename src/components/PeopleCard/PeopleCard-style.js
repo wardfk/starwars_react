@@ -47,7 +47,16 @@ span{
     cursor: pointer;
     letter-spacing: 3px;
 }
-@media screen and (max-width: 375px){
+@media screen and (max-width: 768px){
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+    h3{
+        font-size: 10px;
+    }
+    span{
+        font-size: 0.4rem;
+    }
 }
 `;
 

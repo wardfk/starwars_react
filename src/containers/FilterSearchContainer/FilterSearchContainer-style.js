@@ -15,15 +15,16 @@ const FilterSearchContainerContainer = styled.div`
         height: 25px;
     }
     @media screen and (max-width: 1400px){
-        flex-direction: column;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 15px;
         .search{
             margin-bottom: 25px;
         }
     }
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 1000px){
         flex-direction: column;
-        padding: 0;
-        justify-content: center;
+        align-items: center;
         .search{
             margin-bottom: 25px;
         }

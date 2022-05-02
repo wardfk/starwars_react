@@ -21,7 +21,7 @@ const ModalContainer = styled.div`
         width: 100%;
         max-width: 600px;
         min-height: 300px;
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.9);
         border-radius: 15px;
         display: flex;
         flex-direction: column;
@@ -44,6 +44,7 @@ const ModalContainer = styled.div`
             width: 85%;
             display: flex;
             margin: auto;
+            padding: 10px 20px;
         }
     }
 `;
