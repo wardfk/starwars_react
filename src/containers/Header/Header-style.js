@@ -17,24 +17,34 @@ const HeaderContainer = styled.header`
         justify-content: space-between;
         align-items: center;
     }
-
-    @media screen and (max-width: 768px){
-        .logo{
-            margin: 45px 0 0 45px;
-        }
-    }
     
     @media screen and (max-width: 375px){
         flex-direction: column;
         .logo{
-            // width: 182px;
             justify-content: center;
+            margin: 0px;
         }
         .links{
             display: flex;
             justify-center: center;
         }
     }
+
+    @media screen and (max-width: 768px){
+        flex-direction: column;
+        padding-top: 20px;
+        min-height: 100px;
+        margin-bottom: 20px;
+        .logo{
+            justify-content: center;
+            margin: 0px;
+        }
+        .links{
+            display: flex;
+            justify-center: center;
+        }
+    }
+  
   
 `;
 

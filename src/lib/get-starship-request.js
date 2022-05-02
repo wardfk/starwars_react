@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const getStarshipsRequest = () => {
-    return axios ('https://swapi.dev/api/starships', {
-        method:'get'
+export const getStarshipRequest = (url) => {
+    return axios (url, {
+        method:'GET'
     });
 };

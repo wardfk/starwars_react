@@ -6,8 +6,8 @@ const SectionContainer = styled.section`
     min-height: 60vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     padding: 0;
-    // margin: 0 122px;
     flex-wrap: wrap;
 `;
 

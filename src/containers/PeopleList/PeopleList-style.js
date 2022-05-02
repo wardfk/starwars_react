@@ -1,18 +1,17 @@
 import styled from 'styled-components';
 
 const PeopleListContainer = styled.ul`
+    margin: 50px;
     display: flex;
-    max-width: 1900px;
-    width: 100%;
-    margin: 50px 100px;
-    justify-content: space-between;
-    gap: 30px;
+    justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    list-style-type: none;
-    
     padding: 0;
-    
+    gap: 20px;
+    list-style: none;
+    @media screen and (max-width: 768px){
+        justify-content: space-around;
+    }
 `;
 
 export default PeopleListContainer;

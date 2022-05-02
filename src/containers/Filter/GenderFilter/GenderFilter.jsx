@@ -5,7 +5,6 @@ const GenderFilter = ({setFilterGender}) => {
     return(
         <FilterContainer>
             <div className="filter-people">
-                <h4>Gender People</h4>
                 <div className="buttons">
                     <button onClick={() => setFilterGender(0)}>All</button>
                     <button onClick={() => setFilterGender("male")}>Male</button>
