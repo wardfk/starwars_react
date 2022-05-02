@@ -2,12 +2,13 @@ import React from "react";
 
 import LogoContainer from "./Logo-style";
 
-import logo from '../../assets/img/logo_starwars.png';
 
-const Logo = () => {
+const Logo = ({children}) => {
     return (
         <LogoContainer>
-            <img className="logo" src={logo} alt="Logo Star Wars" />
+            <p>
+                star <br></br>wars <br></br><span>by Ward Feys</span>
+            </p>
         </LogoContainer>
     );
 };

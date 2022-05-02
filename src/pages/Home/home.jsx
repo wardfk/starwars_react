@@ -9,8 +9,7 @@ import Section from '../../containers/Section/Section';
 import PeopleList from '../../containers/PeopleList/PeopleList';
 import Modal from "../../containers/Modal/Modal";
 import GenderFilter from '../../containers/Filter/GenderFilter/GenderFilter';
-import Pagenav from '../../containers/Pagenav/Pagenav';
-import StarshipList from "../../containers/StarshipList/StarshipList";
+// import Pagenav from '../../containers/Pagenav/Pagenav';
 import FilterSearchContainer from "../../containers/FilterSearchContainer/FilterSearchContainer";
 
 //IMPORT COMPONENTS
@@ -18,7 +17,7 @@ import TitleH1 from '../../components/Text/TitleH1/TitleH1';
 import PeopleCard from '../../components/PeopleCard/PeopleCard';
 import StarshipCard from "../../components/StarshipCard/StarshipCard";
 
-import Button from "../../components/Button/Button";
+// import Button from "../../components/Button/Button";
 
 //IMPORT HOOKS
 import { useStarwars } from '../../services/starwars-services';
@@ -79,6 +78,7 @@ function Home() {
   getStarshipList();
   }, []); 
 
+  // MODALINFO PEOPLE
   const handleHuman = async (url) => {
     const human = await peopleService.getHuman(url);
     const humanInfo = await human.data;
@@ -86,6 +86,7 @@ function Home() {
     handleModal(true);
   }
 
+  // MODALINFO STARSHIP
   const handleStarship = async (url) => {
     const starship = await peopleService.getStarship(url);
     const starshipInfo = await starship.data;
@@ -93,6 +94,7 @@ function Home() {
     handleSsModal(true); 
   }
 
+  // SEARCHBAR
   const handleSearch = () => {
     const searchedValue = searchBar.current.value.toLowerCase();
     const filteredPeople = peopleList.filter(people => people.name.toLowerCase().includes(searchedValue));
@@ -110,11 +112,22 @@ function Home() {
     setFiltered(filter);
   }, [filterGender]);
 
-  const handlePag = async (url) => {
-    const people = await peopleService.getHuman(url);
-    const {results} = await people.data;
-    setPeopleList(results);
-  }
+     // FILTER WITH PASSENGERS
+    //  useEffect(() => {
+    //   if(filterGender <= 0){
+    //     return setFiltered(starshipList);
+    //   }
+    //   const filter = peopleList.filter((people) => people.gender === filterGender);
+    //   setFiltered(filter);
+    // }, []);
+
+    // 
+
+  // const handlePag = async () => {
+  //   const people = await peopleService.getPeople();
+  //   const {results} = await people.data;
+  //   setPeopleList(results);
+  // }
   
 
 
@@ -124,21 +137,19 @@ function Home() {
       background: `URL(${background})`,
       backgroundPosition: 'top',
       backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
+      backgroundRepeat: 'no-repeat'
   }}>
     <Header />
     <Section>
       <div>  
         <div>
           <TitleH1 
-            text="Chose your STAR WARS"
+            text="Choose your STAR WARS"
           />
         </div>
-        
-        
           <FilterSearchContainer>
             <input type="text" className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
-            <br></br>
+            
           <GenderFilter 
             setFilterGender={(id) => setFilterGender(id)} 
           />
@@ -149,7 +160,7 @@ function Home() {
       {peopleService.starshipListError !== "" && <span>{peopleService.starshipListError}</span>}
       <PeopleList>
         {
-          searchedPeople.map((people, index) => {
+          filtered.map((people, index) => {
             return(
               <li key={index}>
                 <PeopleCard className="card"
@@ -160,7 +171,6 @@ function Home() {
             )
           })
         }
-        
         {
           searchedStarships.map((starship, index) => {
             return(
@@ -174,11 +184,11 @@ function Home() {
           })
         }
       </PeopleList>
-        {/* <Pagenav 
-          prevUrl={peopleList.previous}
-          nextUrl={peopleList.next}
-          onClick={(url)=>handlePag(url)}
-        />  */}
+      {/* <Pagenav 
+        prevUrl={peopleList.previous}
+        nextUrl={peopleList.next}
+        onClick={(url)=>handlePag(url)}
+      />  */}
     </Section>
     {
         modalOpened && (
@@ -186,19 +196,33 @@ function Home() {
             { 
               <div>
                 <div>
-                  <h2>Name:</h2>{selectedPeople.name}
+                  <h2 style={{
+                    textDecoration: 'underline'
+                  }}>Name: </h2> <h2>{selectedPeople.name}</h2>
                 </div>
-                  <h4>Height: </h4>{selectedPeople.height}
+                  <h4 style={{
+                    textDecoration: 'underline'
+                  }}>Height: </h4>{selectedPeople.height}
                   
-                  <h4>Mass: </h4>{selectedPeople.mass}
+                  <h4 style={{
+                    textDecoration: 'underline'
+                  }}>Mass: </h4>{selectedPeople.mass}
                   
-                  <h4>Hair color: </h4>{selectedPeople.hair_color}
+                  <h4 style={{
+                    textDecoration: 'underline'
+                  }}>Hair color: </h4>{selectedPeople.hair_color}
                   
-                  <h4>Skin color: </h4>{selectedPeople.skin_color}
+                  <h4 style={{
+                    textDecoration: 'underline'
+                  }}>Skin color: </h4>{selectedPeople.skin_color}
                   
-                  <h4>Eye color: </h4>{selectedPeople.eye_color}
+                  <h4 style={{
+                    textDecoration: 'underline'
+                  }}>Eye color: </h4>{selectedPeople.eye_color}
                   
-                  <h4>Birth year: </h4>{selectedPeople.birth_year}
+                  <h4 style={{
+                    textDecoration: 'underline'
+                  }}>Birth year: </h4>{selectedPeople.birth_year}
               </div>
             }
           </Modal>

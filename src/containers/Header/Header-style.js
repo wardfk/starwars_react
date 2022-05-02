@@ -2,21 +2,12 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.header`
     width: 100%;
-    max-width: 1440px;
+    max-width: 1400px;
     min-height: 200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    .logo{
-        margin: 70px 0 0 122px ;   
-    }
-    .links{
-        width: 200px;
-        margin-right: 122px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+    font-family: jedi;
     
     @media screen and (max-width: 375px){
         flex-direction: column;
@@ -25,23 +16,23 @@ const HeaderContainer = styled.header`
             margin: 0px;
         }
         .links{
-            display: flex;
-            justify-center: center;
+            display: none;
         }
     }
 
     @media screen and (max-width: 768px){
         flex-direction: column;
-        padding-top: 20px;
         min-height: 100px;
-        margin-bottom: 20px;
+        margin: 0 0 20px 0;
+        width: 100%;
+        justify-content: center;
         .logo{
             justify-content: center;
             margin: 0px;
         }
         .links{
-            display: flex;
-            justify-center: center;
+            display: none;
+            margin: 0;
         }
     }
   

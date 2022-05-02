@@ -8,6 +8,7 @@ const ContactContainer = styled.form`
     display: flex;
     justify-content: space-around;
     align-items: center;
+    font-family: jedi;
     .talk{
         top: 0px;
         left: 150px;
@@ -66,11 +67,19 @@ const ContactContainer = styled.form`
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid black; 
-        background-color: white;
         box-shadow: 0 0 90px rgba(99, 163, 255, 1);
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-family: jedi;
+        letter-spacing: 5px;
         cursor: pointer;
+        background-color: rgba(0, 0, 0, .6);
+        color: white;
+    }
+    .message, .email, .name{
+        font-family: jedi;
+        letter-spacing: 2px;
+        border: none;
+        background-color: rgba(255, 255, 255, .6);
+        color: blue;
     }
 `;
 

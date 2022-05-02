@@ -14,7 +14,10 @@ const ModalContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    
     .modal-wrapper{
+        font-family: jedi;
+        letter-spacing: 3px;
         width: 100%;
         max-width: 600px;
         min-height: 300px;
@@ -30,6 +33,9 @@ const ModalContainer = styled.div`
             span{
                 cursor: pointer;
             }
+        }
+        .info{
+            text-align: center;
         }
     }
 

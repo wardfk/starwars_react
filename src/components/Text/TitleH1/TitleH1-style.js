@@ -6,6 +6,7 @@ const TitleH1Container = styled.div`
     color: white;
     display: flex;
     text-align: center;
+    font-family: jedi;
     text-shadow: 0 0 7px rgb(255, 232, 31),
     0 0 10px rgb(255, 232, 31),
     0 0 21px rgb(255, 232, 31),

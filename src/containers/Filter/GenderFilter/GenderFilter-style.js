@@ -3,39 +3,36 @@ import styled from 'styled-components';
 const FilterContainer = styled.div`
     background: rgba(255, 0, 0, 0.5);
     border-radius: 6px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(6.7px);
     -webkit-backdrop-filter: blur(6.7px);
     padding: 15px; 
+    display: flex;
     .filter-people{
-        width: 300px;
+        width: 450px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        h4{
-            font-size: 1.3rem;
-            color: white;
-        }
         .buttons{
-                width: 100%;
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: center;
-            }
-            button{
-                font-size: 1.1rem;
-                padding: 0;
-                background-color: transparent;
-                border: none;
-                text-shadow: 2px 2px 3px white;
-                color: white;
-                text-decoration: underline;
-                cursor: pointer;
-                :hover{
-                    text-decoration: none;
-                }
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            text-align: center;
+        }
+        button{
+            text-shadow: -.5px 0 black, 0 .5px black, .5px 0 black, 0 -.5px black;
+            font-family: jedi;
+            font-size: 1.1rem;
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            color: white;
+            text-decoration: underline;
+            cursor: pointer;
+            :hover{
+                text-decoration: none;
             }
         }
     @media screen and (max-width: 375px){
@@ -47,16 +44,21 @@ const FilterContainer = styled.div`
             align-items: center;
         }
         .buttons{
-            flex-direction: row;
+            display: flex;
             button: 0.9rem;
+            flex-direction: column;
         }
         button{
 
         }
     }
     @media screen and (max-width: 768px){
-        padding: 10px;
-        .buttons{
+        display: flex;
+        width: 200px;
+        .filter-people{
+            margin: auto;
+        }
+        .buttons{0;
             flex-direction: column;
             button{
                 font-size: 0.9rem;

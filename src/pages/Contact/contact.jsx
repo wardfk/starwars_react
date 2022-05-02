@@ -40,6 +40,7 @@ function Contact () {
             <form >
                 <input 
                     type="text" 
+                
                     name="name" 
                     placeholder="First name & last name"
                     className="name"
@@ -49,6 +50,7 @@ function Contact () {
                     
                 <input 
                     type="email"
+                
                     name="email" 
                     placeholder="Email"
                     className="email"
