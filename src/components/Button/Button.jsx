@@ -1,10 +1,12 @@
-const Button = ({children}) => {
+import ButtonContainer from "./Buton-style";
+
+const pageButton = ({children}) => {
     return(
-        <span>
+        <ButtonContainer>
             {children}
-        </span>
+        </ButtonContainer>
     );
 
 };
 
-export default Button;
+export default pageButton;

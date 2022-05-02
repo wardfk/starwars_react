@@ -1,14 +1,14 @@
 import PagenavContainer from "./Pagenav-style";
-import Button from "../../components/Button/Button";
+import pageButton from "../../components/Button/Button";
 
-const Pagenav = ({prevUrl, nextUrl, defClick}) => {
+const Pagenav = ({prevUrl, nextUrl, onClick}) => {
     return(
         <Pagenav>
             {
-                prevUrl !== null && <Button onClick={() => defClick(prevUrl)}>Prev</Button>
+                prevUrl !== null && <pageButton onClick={() => onClick(prevUrl)}>Prev</pageButton>
             }
             {
-                nextUrl !== null && <Button onClick={() => defClick(nextUrl)}>Next</Button>
+                nextUrl !== null && <pageButton onClick={() => onClick(nextUrl)}>Next</pageButton>
             }
         </Pagenav>
     );

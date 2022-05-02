@@ -10,7 +10,9 @@ const MainModal = ({children, handleClick}) => {
                 <div className="tob-bar">
                     <span onClick={() => handleClick()}>X</span>
                 </div>
-                {children}
+                <div className="info">
+                    {children}
+                </div>
             </div>
         </ModalContainer>
     );
