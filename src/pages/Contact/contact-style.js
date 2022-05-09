@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const ContactContainer = styled.form`
     width: 100%;
     max-width: 1440px;
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -27,13 +27,15 @@ const ContactContainer = styled.form`
     }
     .message, .email, .name{
         width: 400px;
+        height: 50px;
         margin-bottom: 20px;
         font-family: jedi;
         letter-spacing: 2px;
         border: none;
         background-color: rgba(255, 255, 255, .8);
         box-shadow: 0px 0px 200px rgba(255, 255, 255, 1);
-        color: blue;
+        color: black;
+        font-size: 1.2rem;
     }
 `;
 

@@ -11,6 +11,7 @@ import Modal from "../../containers/Modal/Modal";
 import GenderFilter from '../../containers/Filter/GenderFilter/GenderFilter';
 import Pagenav from '../../containers/Pagenav/Pagenav';
 import FilterSearchContainer from "../../containers/FilterSearchContainer/FilterSearchContainer";
+import Banner from "../../containers/Banner/Banner";
 
 //IMPORT COMPONENTS
 import TitleH1 from '../../components/Text/TitleH1/TitleH1';
@@ -148,13 +149,13 @@ function Home() {
         onClick={(url)=>handlePag(url)}
         /> 
       }
-    <Section>
-      <div>  
-        <div>
+      <Banner>
           <TitleH1 
             text="Choose your STAR WARS"
           />
-        </div>
+      </Banner>
+    <Section>
+      <div>  
           <FilterSearchContainer>
             <input type="text" className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
             

@@ -2,6 +2,8 @@ import react, { useState } from "react";
 import Header from '../../containers/Header/Header';
 import ContactContainer from "./contact-style";
 import background from '../../assets/img/bgsw.jpg';
+import TitleH1 from "../../components/Text/TitleH1/TitleH1";
+import Banner from "../../containers/Banner/Banner";
 
 
 function Contact () {
@@ -27,6 +29,11 @@ function Contact () {
             backgroundRepeat: 'no-repeat'
         }}>
             <Header />
+            <Banner>
+                <TitleH1 
+                    text="Contact"
+                />
+            </Banner>
             <ContactContainer>
                 <form >
                     <input 
