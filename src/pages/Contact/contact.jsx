@@ -26,7 +26,11 @@ function Contact () {
             backgroundImage: `URL(${background})`,
             backgroundPosition: 'top',
             backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            maxWidth: '1400px',
+            width: '100%',
+            margin:'auto'
+
         }}>
             <Header />
             <Banner>
