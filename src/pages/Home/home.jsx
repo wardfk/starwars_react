@@ -9,7 +9,7 @@ import Section from '../../containers/Section/Section';
 import PeopleList from '../../containers/PeopleList/PeopleList';
 import Modal from "../../containers/Modal/Modal";
 import GenderFilter from '../../containers/Filter/GenderFilter/GenderFilter';
-// import Pagenav from '../../containers/Pagenav/Pagenav';
+import Pagenav from '../../containers/Pagenav/Pagenav';
 import FilterSearchContainer from "../../containers/FilterSearchContainer/FilterSearchContainer";
 
 //IMPORT COMPONENTS
@@ -17,7 +17,6 @@ import TitleH1 from '../../components/Text/TitleH1/TitleH1';
 import PeopleCard from '../../components/PeopleCard/PeopleCard';
 import StarshipCard from "../../components/StarshipCard/StarshipCard";
 
-// import Button from "../../components/Button/Button";
 
 //IMPORT HOOKS
 import { useStarwars } from '../../services/starwars-services';
@@ -88,8 +87,8 @@ function Home() {
 
   // MODALINFO STARSHIP
   const handleStarship = async (url) => {
-    const starship = await peopleService.getStarship(url);
-    const starshipInfo = await starship.data;
+    const starships = await peopleService.getStarship(url);
+    const starshipInfo = await starships.data;
     setSelectedStarships(starshipInfo);
     handleSsModal(true); 
   }
@@ -121,13 +120,14 @@ function Home() {
     //   setFiltered(filter);
     // }, []);
 
-    // 
-
-  // const handlePag = async () => {
-  //   const people = await peopleService.getPeople();
-  //   const {results} = await people.data;
-  //   setPeopleList(results);
-  // }
+  const handlePag = async (url) => {
+    const people = await peopleService.getPeople(url);
+    const starships = await peopleService.getStarships(url);
+    const {results} = await people.data;
+    const {result} = await starships.data;
+    setPeopleList(results);
+    setStarshipList(result);
+  }
   
 
 
@@ -140,6 +140,14 @@ function Home() {
       backgroundRepeat: 'no-repeat'
   }}>
     <Header />
+      {
+        PeopleList && 
+        <Pagenav 
+        prevUrl={peopleList.previous}
+        nextUrl={peopleList.next}
+        onClick={(url)=>handlePag(url)}
+        /> 
+      }
     <Section>
       <div>  
         <div>
@@ -184,11 +192,7 @@ function Home() {
           })
         }
       </PeopleList>
-      {/* <Pagenav 
-        prevUrl={peopleList.previous}
-        nextUrl={peopleList.next}
-        onClick={(url)=>handlePag(url)}
-      />  */}
+      
     </Section>
     {
         modalOpened && (
