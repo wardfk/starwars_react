@@ -46,7 +46,7 @@ export const useStarwars = () => {
 
     const getStarship = async (url) => {
         try{
-            const starshipResponse = await getStarshipsRequest(url);
+            const starshipResponse = await getStarshipRequest(url);
             setLoading(false);
             return starshipResponse;
         }catch(error){

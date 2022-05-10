@@ -88,8 +88,8 @@ function Home() {
 
   // MODALINFO STARSHIP
   const handleStarship = async (url) => {
-    const starships = await peopleService.getStarship(url);
-    const starshipInfo = await starships.data;
+    const starship = await peopleService.getStarship(url);
+    const starshipInfo = await starship.data;
     setSelectedStarships(starshipInfo);
     handleSsModal(true); 
   }
@@ -123,7 +123,7 @@ function Home() {
 
   const handlePag = async (url) => {
     const people = await peopleService.getPeople(url);
-    const starships = await peopleService.getStarships(url);
+    const starships = await peopleService.getStarship(url);
     const {results} = await people.data;
     const {result} = await starships.data;
     setPeopleList(results);
