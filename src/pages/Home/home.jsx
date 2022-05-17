@@ -12,6 +12,7 @@ import GenderFilter from '../../containers/Filter/GenderFilter/GenderFilter';
 import Pagenav from '../../containers/Pagenav/Pagenav';
 import FilterSearchContainer from "../../containers/FilterSearchContainer/FilterSearchContainer";
 import Banner from "../../containers/Banner/Banner";
+import Footer from "../../containers/Footer/Footer";
 
 //IMPORT COMPONENTS
 import TitleH1 from '../../components/Text/TitleH1/TitleH1';
@@ -273,6 +274,7 @@ function Home() {
           </Modal>
         )
       }
+      <Footer />
     </div>
   );
 }

@@ -4,6 +4,7 @@ import ContactContainer from "./contact-style";
 import background from '../../assets/img/bgsw.jpg';
 import TitleH1 from "../../components/Text/TitleH1/TitleH1";
 import Banner from "../../containers/Banner/Banner";
+import Footer from "../../containers/Footer/Footer";
 
 
 function Contact () {
@@ -63,6 +64,7 @@ function Contact () {
                     <span onClick={() => sendForm() } >Enviar</span>
                 </form>
             </ContactContainer>
+            <Footer />
         </div>
     );
 };
