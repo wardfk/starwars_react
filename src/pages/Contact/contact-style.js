@@ -14,6 +14,7 @@ const ContactContainer = styled.form`
     }
     span{
         width: 400px;
+        height: 50px;
         margin-bottom: 20px;
         display: flex;
         justify-content: center;
@@ -36,6 +37,18 @@ const ContactContainer = styled.form`
         box-shadow: 0px 0px 200px rgba(255, 255, 255, 1);
         color: black;
         font-size: 1.2rem;
+    }
+    @media screen and (max-width: 500px){
+        span{
+            width: 300px;
+            margin-bottom: 10px;
+            height: 30px;
+        }
+        .message, .email, .name{
+            width: 300px;
+            margin-bottom: 10px;
+            height: 30px;
+        }
     }
 `;
 

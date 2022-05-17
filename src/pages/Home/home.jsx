@@ -1,7 +1,7 @@
 import react, { useState, useEffect, useRef } from "react";
 
 //IMPORT BACKGROUND
-import background from '../../assets/img/bgstarwars.jpg';
+import background from '../../assets/img/bgsw.jpg';
 
 // IMPORT CONTAINERS
 import Header from '../../containers/Header/Header';
@@ -154,7 +154,7 @@ function Home() {
       backgroundPosition: 'top',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      maxWidth: '1400px',
+      maxWidth: '2000px',
       width: '100%',
       margin:'auto'
   }}>

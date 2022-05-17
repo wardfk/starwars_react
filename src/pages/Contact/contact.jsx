@@ -27,7 +27,7 @@ function Contact () {
             backgroundPosition: 'top',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            maxWidth: '1400px',
+            maxWidth: '2000px',
             width: '100%',
             margin:'auto'
 
