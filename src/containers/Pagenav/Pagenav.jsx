@@ -1,14 +1,14 @@
 import PagenavContainer from './Pagenav-style';
 import pageButton from "../../components/Button/Button";
 
-const Pagenav = ({prevUrl, nextUrl, onClick}) => {
+const Pagenav = ({peoplePrevUrl, peopleNextUrl,starshipPrevUrl, starshipNextUrl, onClick}) => {
     return(
         <PagenavContainer>
             {
-                prevUrl !== null && <pageButton onClick={() => onClick(prevUrl)}>Prev</pageButton>
+                peoplePrevUrl !== null && <pageButton onClick={() => onClick(peoplePrevUrl, starshipPrevUrl)}>Prev</pageButton>
             }
             {
-                nextUrl !== null && <pageButton onClick={() => onClick(nextUrl)}>Next</pageButton>
+                peopleNextUrl !== null && <pageButton onClick={() => onClick(peopleNextUrl, starshipNextUrl)}>Next</pageButton>
             }
         </PagenavContainer>
     );

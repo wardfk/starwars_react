@@ -41,11 +41,16 @@ function Home() {
   const [peopleList, setPeopleList] = useState([]);
   const [selectedPeople, setSelectedPeople] = useState({});
   const [searchedPeople, setSearchedPeople] = useState([]);
+  const [peopleNextPage, setPeopleNextPage] = useState("");
+  const [peoplePreviousPage, setPeoplePreviousPage] = useState("");
 
   //STARSHIPS
   const [starshipList, setStarshipList] = useState([]);
   const [selectedStarships, setSelectedStarships] = useState({});
   const [searchedStarships, setSearchedStarships] = useState([]);
+  const [starshipNextPage,setStarshipNextPage] = useState("");
+  const [starshipPreviousPage,setStarshipPreviousPage] = useState("");
+
 
   //SEARCH
   const searchBar = useRef(null);
@@ -59,19 +64,23 @@ function Home() {
   useEffect(() => {
     const getPeopleList = async () => {
       const people = await peopleService.getPeople();
-      const {results} = await people.data;
+      const {results, next, previous} = await people.data;
       setPeopleList(results);
       setSearchedPeople(results);
       setFiltered(results);
+      setPeopleNextPage(next);
+      setPeoplePreviousPage(previous);
     }
     
     // SHOW US THE STARSHIP LIST
     const getStarshipList = async () => {
       const starships = await peopleService.getStarships();
-      const {results} = await starships.data;
+      const {results, next, previous} = await starships.data;
       setStarshipList(results);
       setSearchedStarships(results);
       console.log(results);
+      setStarshipNextPage(next);
+      setStarshipPreviousPage(previous);
     }
   
   getPeopleList();
@@ -121,13 +130,19 @@ function Home() {
     //   setFiltered(filter);
     // }, []);
 
-  const handlePag = async (url) => {
-    const people = await peopleService.getPeople(url);
-    const starships = await peopleService.getStarship(url);
-    const {results} = await people.data;
-    const {result} = await starships.data;
-    setPeopleList(results);
-    setStarshipList(result);
+  const handlePag = async (url1, url2) => {
+    const people = await peopleService.getHuman(url1);
+    const starships = await peopleService.getStarship(url2);
+    const peopleResults = await people.data.results;
+    const peopleNext = await people.data.next;
+    const peoplePrevious = await people.data.previous;
+    const {results, next, previous} = await starships.data;
+    setStarshipNextPage(next);
+    setStarshipPreviousPage(previous);
+    setPeopleNextPage(peopleNext);
+    setPeoplePreviousPage(peoplePrevious);
+    setFiltered(peopleResults);
+    setSearchedStarships(results);
   }
   
 
@@ -144,14 +159,6 @@ function Home() {
       margin:'auto'
   }}>
     <Header />
-      {
-        PeopleList && 
-        <Pagenav 
-        prevUrl={peopleList.previous}
-        nextUrl={peopleList.next}
-        onClick={(url)=>handlePag(url)}
-        /> 
-      }
       <Banner>
           <TitleH1 
             text="Choose your STAR WARS"
@@ -198,6 +205,16 @@ function Home() {
       </PeopleList>
       
     </Section>
+    {
+      PeopleList && 
+      <Pagenav 
+        peoplePrevUrl={peoplePreviousPage}
+        peopleNextUrl={peopleNextPage}
+        starshipPrevUrl={starshipPreviousPage}
+        starshipNextUrl={starshipNextPage}
+        onClick={(url1, url2)=>handlePag(url1, url2)}
+      /> 
+    }
     {
         modalOpened && (
           <Modal handleClick={() => handleModal(false)}>
