@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const BannerContainer = styled.div`
-    max-width: 1400px;
+    max-width: 2000px;
     width: 100%;
     height: 100px;
     display: flex;

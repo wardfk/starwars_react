@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ContactContainer = styled.form`
     width: 100%;
-    max-width: 1440px;
+    max-width: 2000px;
     min-height: 50vh;
     display: flex;
     justify-content: space-around;

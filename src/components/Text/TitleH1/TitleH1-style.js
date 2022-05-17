@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 const TitleH1Container = styled.div`
-    margin: 50px 100px;
     font-size: 40px;
     color: white;
     display: flex;
