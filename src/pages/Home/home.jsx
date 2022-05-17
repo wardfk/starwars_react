@@ -248,9 +248,9 @@ function Home() {
                   
                   <h4>Passengers: </h4>{selectedStarships.passengers}
                   
-                  <h4>Cargo: </h4>{selectedStarships.cargo_capicity}
+                  <h4>Cargo: </h4>{selectedStarships.cargo_capacity}
                   
-                  <h4>Hyperdrive: </h4>{selectedStarships.Hyperdrive_rating}
+                  <h4>Hyperdrive: </h4>{selectedStarships.hyperdrive_rating}
               </div>
             }
           </Modal>
