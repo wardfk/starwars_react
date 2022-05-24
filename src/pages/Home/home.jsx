@@ -1,7 +1,7 @@
 import react, { useState, useEffect, useRef } from "react";
 
 //IMPORT BACKGROUND
-import background from '../../assets/img/bgstarwars.jpg';
+import background from '../../assets/img/bgsw.jpg';
 
 // IMPORT CONTAINERS
 import Header from '../../containers/Header/Header';
@@ -9,15 +9,16 @@ import Section from '../../containers/Section/Section';
 import PeopleList from '../../containers/PeopleList/PeopleList';
 import Modal from "../../containers/Modal/Modal";
 import GenderFilter from '../../containers/Filter/GenderFilter/GenderFilter';
-// import Pagenav from '../../containers/Pagenav/Pagenav';
+import Pagenav from '../../containers/Pagenav/Pagenav';
 import FilterSearchContainer from "../../containers/FilterSearchContainer/FilterSearchContainer";
+import Banner from "../../containers/Banner/Banner";
+import Footer from "../../containers/Footer/Footer";
 
 //IMPORT COMPONENTS
 import TitleH1 from '../../components/Text/TitleH1/TitleH1';
 import PeopleCard from '../../components/PeopleCard/PeopleCard';
 import StarshipCard from "../../components/StarshipCard/StarshipCard";
 
-// import Button from "../../components/Button/Button";
 
 //IMPORT HOOKS
 import { useStarwars } from '../../services/starwars-services';
@@ -41,11 +42,16 @@ function Home() {
   const [peopleList, setPeopleList] = useState([]);
   const [selectedPeople, setSelectedPeople] = useState({});
   const [searchedPeople, setSearchedPeople] = useState([]);
+  const [peopleNextPage, setPeopleNextPage] = useState("");
+  const [peoplePreviousPage, setPeoplePreviousPage] = useState("");
 
   //STARSHIPS
   const [starshipList, setStarshipList] = useState([]);
   const [selectedStarships, setSelectedStarships] = useState({});
   const [searchedStarships, setSearchedStarships] = useState([]);
+  const [starshipNextPage,setStarshipNextPage] = useState("");
+  const [starshipPreviousPage,setStarshipPreviousPage] = useState("");
+
 
   //SEARCH
   const searchBar = useRef(null);
@@ -59,19 +65,23 @@ function Home() {
   useEffect(() => {
     const getPeopleList = async () => {
       const people = await peopleService.getPeople();
-      const {results} = await people.data;
+      const {results, next, previous} = await people.data;
       setPeopleList(results);
       setSearchedPeople(results);
       setFiltered(results);
+      setPeopleNextPage(next);
+      setPeoplePreviousPage(previous);
     }
     
     // SHOW US THE STARSHIP LIST
     const getStarshipList = async () => {
       const starships = await peopleService.getStarships();
-      const {results} = await starships.data;
+      const {results, next, previous} = await starships.data;
       setStarshipList(results);
       setSearchedStarships(results);
       console.log(results);
+      setStarshipNextPage(next);
+      setStarshipPreviousPage(previous);
     }
   
   getPeopleList();
@@ -121,13 +131,20 @@ function Home() {
     //   setFiltered(filter);
     // }, []);
 
-    // 
-
-  // const handlePag = async () => {
-  //   const people = await peopleService.getPeople();
-  //   const {results} = await people.data;
-  //   setPeopleList(results);
-  // }
+  const handlePag = async (url1, url2) => {
+    const people = await peopleService.getHuman(url1);
+    const starships = await peopleService.getStarship(url2);
+    const peopleResults = await people.data.results;
+    const peopleNext = await people.data.next;
+    const peoplePrevious = await people.data.previous;
+    const {results, next, previous} = await starships.data;
+    setStarshipNextPage(next);
+    setStarshipPreviousPage(previous);
+    setPeopleNextPage(peopleNext);
+    setPeoplePreviousPage(peoplePrevious);
+    setFiltered(peopleResults);
+    setSearchedStarships(results);
+  }
   
 
 
@@ -137,16 +154,19 @@ function Home() {
       background: `URL(${background})`,
       backgroundPosition: 'top',
       backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat'
+      backgroundRepeat: 'no-repeat',
+      maxWidth: '2000px',
+      width: '100%',
+      margin:'auto'
   }}>
     <Header />
-    <Section>
-      <div>  
-        <div>
+      <Banner>
           <TitleH1 
             text="Choose your STAR WARS"
           />
-        </div>
+      </Banner>
+    <Section>
+      <div>  
           <FilterSearchContainer>
             <input type="text" className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
             
@@ -184,12 +204,18 @@ function Home() {
           })
         }
       </PeopleList>
-      {/* <Pagenav 
-        prevUrl={peopleList.previous}
-        nextUrl={peopleList.next}
-        onClick={(url)=>handlePag(url)}
-      />  */}
+      
     </Section>
+    {
+      PeopleList && 
+      <Pagenav 
+        peoplePrevUrl={peoplePreviousPage}
+        peopleNextUrl={peopleNextPage}
+        starshipPrevUrl={starshipPreviousPage}
+        starshipNextUrl={starshipNextPage}
+        onClick={(url1, url2)=>handlePag(url1, url2)}
+      /> 
+    }
     {
         modalOpened && (
           <Modal handleClick={() => handleModal(false)}>
@@ -240,14 +266,15 @@ function Home() {
                   
                   <h4>Passengers: </h4>{selectedStarships.passengers}
                   
-                  <h4>Cargo: </h4>{selectedStarships.cargo_capicity}
+                  <h4>Cargo: </h4>{selectedStarships.cargo_capacity}
                   
-                  <h4>Hyperdrive: </h4>{selectedStarships.Hyperdrive_rating}
+                  <h4>Hyperdrive: </h4>{selectedStarships.hyperdrive_rating}
               </div>
             }
           </Modal>
         )
       }
+      <Footer />
     </div>
   );
 }

@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 const TitleH1Container = styled.div`
-    margin: 50px 100px;
     font-size: 40px;
     color: white;
     display: flex;
     text-align: center;
     font-family: jedi;
+    letter-spacing: 1.1 rem;
     text-shadow: 0 0 7px rgb(255, 232, 31),
     0 0 10px rgb(255, 232, 31),
     0 0 21px rgb(255, 232, 31),

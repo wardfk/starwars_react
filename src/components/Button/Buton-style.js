@@ -12,4 +12,4 @@ const ButtonContainer = styled.span`
     cursor:pointer;
 `;
 
-export default ButtonContainer
+export default ButtonContainer;
