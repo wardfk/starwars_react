@@ -9,6 +9,7 @@ const SectionContainer = styled.section`
     justify-content: center;
     padding: 0;
     flex-wrap: wrap;
+    margin: auto;
 `;
 
 export default SectionContainer;

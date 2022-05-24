@@ -47,6 +47,12 @@ const ModalContainer = styled.div`
             padding: 10px 20px;
         }
     }
+    @media screen and (max-width: 375px){
+        .modal-wrapper{
+            width: 200px;
+            line-height: 1rem;
+        }
+    }
 `;
 
 export default ModalContainer;
