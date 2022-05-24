@@ -36,12 +36,13 @@ const FilterContainer = styled.div`
             }
         }
     @media screen and (max-width: 375px){
-        padding: 10px;
+        // padding: 10px;
         .filter-people{
-            width: 300px;
+            // width: 300px;
             display: flex;
             justify-content: start;
             align-items: center;
+            margin: auto;
         }
         .buttons{
             display: flex;
