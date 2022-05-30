@@ -1,8 +1,10 @@
 import react, { useState } from "react";
 import Header from '../../containers/Header/Header';
 import ContactContainer from "./contact-style";
-import darthvader from '../../assets/img/darth-vader-white.png';
-import background from '../../assets/img/bgstarwars.jpg';
+import background from '../../assets/img/bgsw.jpg';
+import TitleH1 from "../../components/Text/TitleH1/TitleH1";
+import Banner from "../../containers/Banner/Banner";
+import Footer from "../../containers/Footer/Footer";
 
 
 function Contact () {
@@ -25,42 +27,44 @@ function Contact () {
             backgroundImage: `URL(${background})`,
             backgroundPosition: 'top',
             backgroundSize: 'cover',
-            backgroundRepeat: 'no-repeat'
+            backgroundRepeat: 'no-repeat',
+            maxWidth: '2000px',
+            width: '100%',
+            margin:'auto'
+
         }}>
             <Header />
+            <Banner>
+                <TitleH1 
+                    text="Contact"
+                />
+            </Banner>
             <ContactContainer>
-                <div className="darth-talk">
-                    <div className="talk">
-                        <p>I'm not your father, but you can ask me anything...</p>
-                    </div>
-                    <div>
-                        <img src={darthvader} alt="" />
-                    </div>
-                </div>
-            <form >
-                <input 
-                    type="text" 
-                
-                    name="name" 
-                    placeholder="First name & last name"
-                    className="name"
-                    onBlur={(e) => handleForm(e)}
-                    required
-                    /><br />
+                <form >
+                    <input 
+                        type="text" 
                     
-                <input 
-                    type="email"
-                
-                    name="email" 
-                    placeholder="Email"
-                    className="email"
-                    onBlur={(e) => handleForm(e)}
-                    required
-                    /><br />
-                <textarea name="message" className="message" placeholder="Write your messege here" cols="30" rows="10" onBlur={(e) => handleForm(e)} required></textarea><br />
-                <span onClick={() => sendForm() } >Enviar</span>
-            </form>
+                        name="name" 
+                        placeholder="First name & last name"
+                        className="name"
+                        onBlur={(e) => handleForm(e)}
+                        required
+                        /><br />
+                        
+                    <input 
+                        type="email"
+                    
+                        name="email" 
+                        placeholder="Email"
+                        className="email"
+                        onBlur={(e) => handleForm(e)}
+                        required
+                        /><br />
+                    <textarea name="message" className="message" placeholder="Write your messege here" cols="30" rows="10" onBlur={(e) => handleForm(e)} required></textarea><br />
+                    <span onClick={() => sendForm() } >Enviar</span>
+                </form>
             </ContactContainer>
+            <Footer />
         </div>
     );
 };

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const FilterContainer = styled.div`
+const StarshipFilterContainer = styled.div`
     background: rgba(255, 0, 0, 0.5);
     border-radius: 6px;
     box-shadow: 0 0px 30px rgba(0, 0, 0, 0.1);
@@ -8,14 +8,12 @@ const FilterContainer = styled.div`
     -webkit-backdrop-filter: blur(6.7px);
     padding: 15px; 
     display: flex;
-    margin: 0;
-    .filter-people{
+    .filter-starship{
         width: 450px;
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-    }
         .buttons{
             width: 100%;
             display: flex;
@@ -38,7 +36,9 @@ const FilterContainer = styled.div`
             }
         }
     @media screen and (max-width: 375px){
-        .filter-people{
+        padding: 10px;
+        .filter-starship{
+            width: 300px;
             display: flex;
             justify-content: start;
             align-items: center;
@@ -55,7 +55,7 @@ const FilterContainer = styled.div`
     @media screen and (max-width: 768px){
         display: flex;
         width: 200px;
-        .filter-people{
+        .filter-starship{
             margin: auto;
         }
         .buttons{0;
@@ -65,7 +65,6 @@ const FilterContainer = styled.div`
             }
         }
     }
-
 `;
 
-export default FilterContainer;
+export default StarshipFilterContainer;
