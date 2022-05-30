@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const FilterSearchContainerContainer = styled.div`
     width: 100%;
     display: flex;
-    padding: 0px;
     justify-content: space-between;
     align-items: center;
     .search{
@@ -19,7 +18,6 @@ const FilterSearchContainerContainer = styled.div`
         align-items: center;
         padding: 0 15px;
         .search{
-            margin-bottom: 25px;
             height: 50px;
             align-items: center;
         }

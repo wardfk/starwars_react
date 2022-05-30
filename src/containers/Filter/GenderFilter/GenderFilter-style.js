@@ -8,6 +8,7 @@ const FilterContainer = styled.div`
     -webkit-backdrop-filter: blur(6.7px);
     padding: 15px; 
     display: flex;
+    margin: 0;
     .filter-people{
         width: 450px;
         display: flex;
@@ -36,13 +37,10 @@ const FilterContainer = styled.div`
             }
         }
     @media screen and (max-width: 375px){
-        // padding: 10px;
         .filter-people{
-            // width: 300px;
             display: flex;
             justify-content: start;
             align-items: center;
-            margin: auto;
         }
         .buttons{
             display: flex;

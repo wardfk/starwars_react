@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 const LogoContainer = styled.div`
+    position: relative;
+    top: 15px;
     display: flex;
     justify-content: center;
+    align-items: center;
     p{
         font-family: jedi;
         text-transform: uppercase;

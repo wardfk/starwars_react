@@ -166,7 +166,12 @@ function Home() {
           />
       </Banner>
     <Section>
-      <div>  
+      <div className="filters" style={{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center '
+
+      }}>  
           <FilterSearchContainer>
             <input type="text" className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
             

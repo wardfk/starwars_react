@@ -3,11 +3,12 @@ import styled from "styled-components";
 const HeaderContainer = styled.header`
     width: 100%;
     max-width: 2000px;
-    min-height: 200px;
+    height: 150px;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-family: jedi;
+    border-bottom: 6px solid rgb(255, 232, 31);
     
     @media screen and (max-width: 375px){
         flex-direction: column;
