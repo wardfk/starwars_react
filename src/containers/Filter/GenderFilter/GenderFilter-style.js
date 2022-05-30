@@ -15,6 +15,7 @@ const FilterContainer = styled.div`
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
         .buttons{
             width: 100%;
             display: flex;

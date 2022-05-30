@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const FilterSearchContainerContainer = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     .search{
         font-family: jedi;
@@ -12,6 +12,7 @@ const FilterSearchContainerContainer = styled.div`
         background: rgba(225, 225, 225, .6);
         color: white;
         height: 25px;
+        border-radius: 6px;
     }
     @media screen and (max-width: 2000px){
         flex-direction: row;
