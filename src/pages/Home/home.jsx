@@ -166,15 +166,9 @@ function Home() {
           />
       </Banner>
     <Section>
-      <div className="filters" style={{
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center '
-
-      }}>  
+      <div>  
           <FilterSearchContainer>
-            <input type="text" className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
-            
+            <input type="text"  className="search" ref={searchBar} placeholder="Search" onChange={(e) => handleSearch(e)} />
           <GenderFilter 
             setFilterGender={(id) => setFilterGender(id)} 
           />
