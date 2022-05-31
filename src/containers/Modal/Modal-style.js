@@ -20,14 +20,15 @@ const ModalContainer = styled.div`
         letter-spacing: 3px;
         width: 100%;
         max-width: 600px;
-        min-height: 300px;
+        max-height: 80%;
         background-color: rgba(255, 255, 255, 0.9);
         border-radius: 15px;
         display: flex;
         flex-direction: column;
         padding: 20px 40px;
         .tob-bar{
-            justify-content: end;
+            margin-top: 20px;
+            justify-content: flex-end;
             padding: 5px;
             display: flex;
             span{
@@ -39,6 +40,7 @@ const ModalContainer = styled.div`
             overflow: auto;
         }
     }
+
 
     @media screen and (max-width: 768px){
         .modal-wrapper{
@@ -55,6 +57,8 @@ const ModalContainer = styled.div`
             line-height: 1rem;
         }
     }
+
+   
 `;
 
 export default ModalContainer;
