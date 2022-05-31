@@ -36,12 +36,14 @@ const ModalContainer = styled.div`
         }
         .info{
             text-align: center;
+            overflow: auto;
         }
     }
 
     @media screen and (max-width: 768px){
         .modal-wrapper{
             width: 85%;
+            max-height: 250px;
             display: flex;
             margin: auto;
             padding: 10px 20px;

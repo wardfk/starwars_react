@@ -12,6 +12,10 @@ const NavegationContainer = styled.div`
         color: white;
         font-size: 1.5rem;
     }
+    @media screen and (max-width: 600px){
+        margin-bottom: 50px;
+        margin-top: 20px;
+    }
 
 `;
 
